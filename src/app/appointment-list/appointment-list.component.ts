@@ -9,5 +9,12 @@ import { Appointment } from '../models/appointment';
 export class AppointmentListComponent {
   newAppointmentTitle: string = '';
   newAppointmentDate: Date = new Date();
+
   appointments: Appointment[] = []
+
+  addAppointment() {
+    // A great way to check on two way data binding
+    alert(this.newAppointmentTitle + ' ' + this.newAppointmentDate)
+    // console.log(this.newAppointmentTitle + ' ' + this.newAppointmentDate)
+  }
 }
