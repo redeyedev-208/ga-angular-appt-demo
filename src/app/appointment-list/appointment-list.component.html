@@ -1,4 +1,14 @@
 <!-- One way data binding using interpolation syntax {{}} -->
-<p>{{ appointment.id }}</p>
-<p>{{ appointment.title }}</p>
-<p>{{ appointment.date }}</p>
+<!-- // Directives allow us to create loops for usages -->
+<div>
+  <input
+    [(ngModel)]="newAppointmentTitle"
+    placeholder="Appointment description"
+  />
+  <input
+    [(ngModel)]="newAppointmentDate"
+    type="date"
+    placeholder="Appointment date"
+  />
+  <button>Add</button>
+</div>
