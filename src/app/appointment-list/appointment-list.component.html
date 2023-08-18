@@ -1,5 +1,3 @@
-<!-- One way data binding using interpolation syntax {{}} -->
-<!-- // Directives allow us to create loops for usages -->
 <div>
   <input
     [(ngModel)]="newAppointmentTitle"
@@ -12,3 +10,10 @@
   />
   <button (click)="addAppointment()">Add</button>
 </div>
+
+<ul>
+  <li *ngFor="let appointment of appointments">
+    {{ appointment.title }}
+    {{ appointment.date | date : "dd.MM.yyyy" }}
+  </li>
+</ul>
