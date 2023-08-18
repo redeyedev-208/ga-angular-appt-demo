@@ -4,17 +4,28 @@ import { Appointment } from '../models/appointment';
 @Component({
   selector: 'app-appointment-list',
   templateUrl: './appointment-list.component.html',
-  styleUrls: ['./appointment-list.component.css']
+  styleUrls: ['./appointment-list.component.css'],
 })
 export class AppointmentListComponent {
   newAppointmentTitle: string = '';
   newAppointmentDate: Date = new Date();
 
-  appointments: Appointment[] = []
+  appointments: Appointment[] = [];
 
   addAppointment() {
-    // A great way to check on two way data binding
-    alert(this.newAppointmentTitle + ' ' + this.newAppointmentDate)
-    // console.log(this.newAppointmentTitle + ' ' + this.newAppointmentDate)
+    // Check only if we have entered a title and a date so that it is a valid appointment
+    if (this.newAppointmentTitle.trim().length && this.newAppointmentDate) {
+      let newAppointment: Appointment = {
+        id: Date.now(),
+        title: this.newAppointmentTitle,
+        date: this.newAppointmentDate,
+      };
+      this.appointments.push(newAppointment);
+
+      this.newAppointmentTitle = '';
+      this.newAppointmentDate = new Date();
+
+      alert(this.appointments.length)
+    }
   }
 }
